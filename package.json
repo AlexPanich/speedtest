@@ -13,7 +13,7 @@
   "scripts": {
     "start": "node bin/speedtest.js",
     "test": "node --test",
-    "lint": "node --check bin/speedtest.js && node --check src/*.js",
+    "lint": "node scripts/lint.js",
     "generate-image": "node scripts/generate-image.js"
   },
   "engines": {

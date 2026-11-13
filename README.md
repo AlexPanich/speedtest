@@ -16,14 +16,19 @@
 Нужен **Node.js 20+**. Сторонних зависимостей нет, `npm install` не требуется.
 
 ```bash
-# без клонирования, прямо с GitHub
-npx github:AlexPanich/speedtest
-
-# или из исходников
 git clone https://github.com/AlexPanich/speedtest.git
 cd speedtest
 node bin/speedtest.js
 ```
+
+Можно запустить и без клонирования, прямо с GitHub:
+
+```bash
+npx --allow-git=all github:AlexPanich/speedtest
+```
+
+> Флаг `--allow-git=all` нужен начиная с npm 12: там установка пакетов из
+> git-репозиториев по умолчанию запрещена. Старые версии npm его просто игнорируют.
 
 Без аргументов утилита качает тестовую картинку из Cloudflare R2.
 Чтобы проверить другой адрес, передайте его первым аргументом:
@@ -35,7 +40,8 @@ node bin/speedtest.js https://example.com/big-image.jpg
 Установить глобально как команду `speedtest`:
 
 ```bash
-npm install -g github:AlexPanich/speedtest   # или `npm link` в папке проекта
+npm link                                          # в папке проекта
+# или: npm install -g --allow-git=all github:AlexPanich/speedtest
 speedtest https://example.com/big-image.jpg
 ```
 
@@ -136,7 +142,7 @@ npm run generate-image -- aurora-4k.png 3840 2160
 
 ```bash
 npm test        # node:test, локальный HTTP-сервер, без сети
-npm run lint    # синтаксическая проверка
+npm run lint    # синтаксическая проверка всех файлов
 ```
 
 Тесты проверяют, что делается ровно N запросов и они не пересекаются по
