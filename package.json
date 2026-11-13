@@ -1,0 +1,28 @@
+{
+  "name": "speedtest",
+  "version": "1.0.0",
+  "description": "Console utility that measures download speed by fetching a URL N times in a row",
+  "type": "module",
+  "bin": {
+    "speedtest": "bin/speedtest.js"
+  },
+  "files": [
+    "bin",
+    "src"
+  ],
+  "scripts": {
+    "start": "node bin/speedtest.js",
+    "test": "node --test",
+    "lint": "node --check bin/speedtest.js && node --check src/*.js",
+    "generate-image": "node scripts/generate-image.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "speedtest",
+    "bandwidth",
+    "cli"
+  ],
+  "license": "MIT"
+}
